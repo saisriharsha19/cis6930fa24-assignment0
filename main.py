@@ -1,6 +1,7 @@
 import requests
 import argparse
 import sys
+import json
 
 def fetch_data_from_api(page):
     """Fetch data from the FBI API with the given page number."""
@@ -11,8 +12,15 @@ def fetch_data_from_api(page):
 
 def process_data(data):
     """Process the input data and return a thorn-separated output string."""
+    if isinstance(data, dict) and 'items' in data: #for page number argument output
+        items = data['items']
+    elif isinstance(data, list): #for file location argument output
+        items = data  
+    else:
+        raise ValueError("Unsupported data format")
+
     lines = []
-    for item in data.get('items', []):
+    for item in items:
         title = item.get('title', "N/A")
         subjects = item.get('subjects', [])
         if not isinstance(subjects, list):
@@ -28,25 +36,35 @@ def process_data(data):
     
     return "\n".join(lines)
 
-def main(page=None):
+def main(page=None, file=None):
     """Main function to fetch, process, and print the data in a specified format."""
     if page is not None:
         data = fetch_data_from_api(page)
+        formatted_data = process_data(data)
+        print(formatted_data)
+    elif file is not None:
+        with open(file, "r", encoding="UTF-8") as data_:
+            data = json.load(data_)
+        formatted_data = process_data(data)
+        print(formatted_data)
     else:
-        print("Error: No valid input source provided, please provide a valid page number", file=sys.stderr)
+        print("Error: No valid input source provided, please provide a valid page number or a file location", file=sys.stderr)
         sys.exit(1)
 
-    formatted_data = process_data(data)
-    print(formatted_data)
+    
+    
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--page", type=int, help="Provide the page number you want to have output for!!")
+    parser.add_argument("--file", type=str, help="Provide the file location containing the data")
     args = parser.parse_args()
     
     args = parser.parse_args()
     if args.page is not None:
         main(page=args.page)
+    elif args.file is not None:
+        main(file=args.file)
     else:
         parser.print_help(sys.stderr)
         sys.exit(1)
