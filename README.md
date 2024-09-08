@@ -20,18 +20,22 @@ pipenv install -e .
 # For Running the Code with file or page arguments
 
 1. pipenv run python main.py --page <integer>
-   For fetching the data using the page number
-2. pipenv run python main.py --file <file-location>
-   For directly using the file which we already have
 
-   pipenv is used to run the python code in a seperate environment, which is dofferent from the local one. (Running the code in an isolated environment)
+   page argument is for fetching the data using the page number.
+
+2. pipenv run python main.py --file <file-location>
+
+   file argument is for directly using the file which we already have.
+   
+   pipenv is used to run the python code in a seperate environment, which is dofferent from the local one. (Running the code in an isolated environment).
 
 
 # For testing the code
 
 1. pipenv run python -m pytest -v
    For running the test files in the /tests/ folder
-   Here pytest is a module in python which can be used for testing the python code in different scenarios
+   
+   Here pytest is a module in python which can be used for testing the python code in different scenarios.
 
 ## Example Output(optional)
 
