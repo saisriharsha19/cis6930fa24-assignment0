@@ -28,6 +28,7 @@ pipenv install -e .
    Here pytest is a module in python which can be used for testing the python code in different scenarios
 
 ## Example Output(optional)
+
 NAJI SHARIFI ZINDASHTI † Counterintelligence, Iran † elpaso, minneapolis
 REZA HAMIDI RAVARI † Seeking Information - Terrorism, Iran † elpaso, minneapolis
 BORIS YAKOVLEVICH LIVSHITS † Counterintelligence † newyork
