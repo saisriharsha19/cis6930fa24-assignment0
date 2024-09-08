@@ -1,6 +1,6 @@
 # Name: Sai Sri Harsha Guddati
 
-# Assignment Description 
+# a. Assignment Description 
 
 1. Downloading non-empty data from a URL
 2. Extrating title field from FBI API
@@ -10,10 +10,10 @@
 
 The assignment task is to fetch non-empty data from an FBI API using the link https://api.fbi.gov/wanted/v1/list?page={2} where the page specifies the page number in the FBI file which the data needs to be fetched. After fetching the data, we need to process(Clean) it to show only the required fileds such as title, subjects and filed_offices seperated by thorn character and print them to the standard output. We need to make sure that if there are multiple strings in a filed, we need to seperate them using commas. After printing the desired output, we need to test our files(functions) if they are working as expected. For testing these functions, we need to use pytest module in Python. The code should be clean and easy to read, for this we need to chunk or seperate our code into functions for better readability, understandability and security of the developed code. There is another aspect in this assignment which is creating a README file, which helps new users or people who will be working on this code to be better understandable.
 
-# How to install
+# b. How to install
 pipenv install -e .
 
-## How to run
+# c. How to run
 
 ## To run the Code with file or page arguments
 
@@ -36,7 +36,8 @@ pipenv install -e .
    
 ## Here pytest is a module in python which can be used for testing the python code in different scenarios.
 
-## Example Output(optional)
+# d. Example Output(optional)
+
 
 NAJI SHARIFI ZINDASHTI † Counterintelligence, Iran † elpaso, minneapolis
 
@@ -89,7 +90,7 @@ ISIAH TERRELL BILLY † Seeking Information, Indian Country, Navajo † albuquer
 SALOME FLORES APODACA † Criminal Enterprise Investigations † washingtondc
 
 
-# Functions
+# e. Functions
 
 ## main.py
 main.py
@@ -113,7 +114,7 @@ fetch_data_from_api(page):
     def main(page=None, file=None):
         pass 
 
-# Tests Folder (Contains two files for testing)
+## Tests Folder (Contains two files for testing)
 
 ## 1. test_fetch_data_from_api.py
 
@@ -139,9 +140,9 @@ fetch_data_from_api(page):
     def test_process_data_non_empty():
         pass
 
-## Bugs and Assumptions
+# f. Bugs and Assumptions
 
-### As per the bugs, there are few things I want to mention about the code I have written,
+## As per the bugs, there are few things I want to mention about the code I have written,
 
 1. I am not checking the type of data that the fetch_data_from_api() function explicitly, because I am alraedy checking the type of the argument in the main function, if there is a data type mismatch then,  while running the code in cmd will throw an error with the respective helper Text to the user, so that the user can correct.
 2. As for the file name, if the user doesn't have any expected JSON file then the code might break because I am not handling any situation where the file provided by the user should match the required JSON file.
