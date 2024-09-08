@@ -4,7 +4,13 @@ Name: Sai Sri Harsha Guddati
 
 # Assignment Description 
 
-The assignment task is to fetch data from an FBI API using the link https://api.fbi.gov/wanted/v1/list?page={2} where the page specifies the page number in the FBI file which the data needs to be fetched. After fetching the data, we need to process(Clean) it to show only the required fileds and print them on the standard output. After printing the desired output, we need to test our files(functions) if they are working as expected. For testing these functions, we need to use pytest module in Python. The code should be clean and easy to read, for this we need to chunk or seperate our code into functions for better readability, understandability and security of the developed code. There is another aspect in this assignment which is creating a README file, which helps new users or people who will be working on this code to be better understandable.
+1. Downloading non-empty data from a URL
+2. Extrating title field from FBI API
+3. Extrating subjects field from FBI API
+4. Extrating field_offices field from FBI API
+5. Printing the full thorn separated file.
+
+The assignment task is to fetch non-empty data from an FBI API using the link https://api.fbi.gov/wanted/v1/list?page={2} where the page specifies the page number in the FBI file which the data needs to be fetched. After fetching the data, we need to process(Clean) it to show only the required fileds such as title, subjects and filed_offices seperated by thorn character and print them to the standard output. We need to make sure that if there are multiple strings in a filed, we need to seperate them using commas. After printing the desired output, we need to test our files(functions) if they are working as expected. For testing these functions, we need to use pytest module in Python. The code should be clean and easy to read, for this we need to chunk or seperate our code into functions for better readability, understandability and security of the developed code. There is another aspect in this assignment which is creating a README file, which helps new users or people who will be working on this code to be better understandable.
 
 # How to install
 pipenv install -e .
@@ -89,9 +95,9 @@ Essentially the main.py file contains three functions namely the main function, 
 # 1. fetch_data_from_api(page): 
     Fetches data from the FBI API for the specified page number. This function makes an API call to FBI API using requests package in python and it receives a JSON output in return.
 # 2. process_data(data): 
-    Processes and formats the data retrieved from the API or a JSON file. Before processing it checks the type of data it is receiving because for the page argument data, the data is in JSON format and for the file location argument data, the data is in list format since we already have a JSON file and we are passing it's contents in a list format. Then the output of this function is a string with newline characters for each entry or record.
+    Processes and formats the data retrieved from the API or a JSON file. Before processing it checks the type of data it is receiving because for the page argument data, the data is in JSON format and for the file location argument data, the data is in list format since we already have a JSON file and we are passing it's contents in a list format. Then the output of this function is a thorn seperated fields for title, subjects and field_offices items and comma's(if there are more than one string for each filed) for each record. Each record's output is then seperated by a newline character and made into a list.
 # 3. main(page=None, file=None): 
-    Main function to handle fetching and processing data based on provided parameters. If the parameter is a integer value with argument named page, then the flow goes to fetch the data from the API based on the page number and if the argument is a string value (File name) then the flow goes to fetch the {JSON} file and parses it to make into a list format.
+    Main function to handle fetching and processing data based on provided parameters. If the parameter is a integer value with argument named page, then the flow goes to fetch the data from the API based on the page number and if the argument is a string value (File name) then the flow goes to fetch the {JSON} file and parses it to make into a list format. After all this, the data is then sent into the respective function (fetch_data_from_api/process_data) or both the functions based on the argument(page/file) and prints the three fileds such as title, subjects and field_offices to the standard output.
 
 
 ## Tests Folder (Contains two files for testing)
