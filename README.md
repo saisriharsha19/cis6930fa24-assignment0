@@ -1,6 +1,4 @@
-# cis6930fa24 -- Assignment0 -- Template
-
-Name: Sai Sri Harsha Guddati
+# Name: Sai Sri Harsha Guddati
 
 # Assignment Description 
 
@@ -17,25 +15,26 @@ pipenv install -e .
 
 ## How to run
 
-# For Running the Code with file or page arguments
+## For Running the Code with file or page arguments
 
-1. pipenv run python main.py --page <integer>
+### 1. pipenv run python main.py --page <integer>
 
-   page argument is for fetching the data using the page number.
+    page argument is for fetching the data using the page number.
 
-2. pipenv run python main.py --file <file-location>
+### 2. pipenv run python main.py --file <file-location>
 
-   file argument is for directly using the file which we already have.
+    file argument is for directly using the file which we already have.
    
-   pipenv is used to run the python code in a seperate environment, which is dofferent from the local one. (Running the code in an isolated environment).
+    pipenv is used to run the python code in a seperate environment, which is dofferent from the local one. (Running the code in an isolated environment).
 
 
-# For testing the code
+## For testing the code
 
-1. pipenv run python -m pytest -v
-   For running the test files in the /tests/ folder
+### 1. pipenv run python -m pytest -v
+    
+    For running the test files in the /tests/ folder
    
-   Here pytest is a module in python which can be used for testing the python code in different scenarios.
+    Here pytest is a module in python which can be used for testing the python code in different scenarios.
 
 ## Example Output(optional)
 
@@ -90,35 +89,36 @@ ISIAH TERRELL BILLY † Seeking Information, Indian Country, Navajo † albuquer
 SALOME FLORES APODACA † Criminal Enterprise Investigations † washingtondc
 
 
-## Functions
+# Functions
 
-#### main.py
+## main.py
 main.py
 Essentially the main.py file contains three functions namely the main function, fetch_data_from_api() and process_data().
 
-# 1. fetch_data_from_api(page): 
+### 1. fetch_data_from_api(page): 
     Fetches data from the FBI API for the specified page number. This function makes an API call to FBI API using requests package in python and it receives a JSON output in return.
-# 2. process_data(data): 
+### 2. process_data(data): 
     Processes and formats the data retrieved from the API or a JSON file. Before processing it checks the type of data it is receiving because for the page argument data, the data is in JSON format and for the file location argument data, the data is in list format since we already have a JSON file and we are passing it's contents in a list format. Then the output of this function is a thorn seperated fields for title, subjects and field_offices items and comma's(if there are more than one string for each filed) for each record. Each record's output is then seperated by a newline character and made into a list.
-# 3. main(page=None, file=None): 
+### 3. main(page=None, file=None): 
     Main function to handle fetching and processing data based on provided parameters. If the parameter is a integer value with argument named page, then the flow goes to fetch the data from the API based on the page number and if the argument is a string value (File name) then the flow goes to fetch the {JSON} file and parses it to make into a list format. After all this, the data is then sent into the respective function (fetch_data_from_api/process_data) or both the functions based on the argument(page/file) and prints the three fileds such as title, subjects and field_offices to the standard output.
 
 
-## Tests Folder (Contains two files for testing)
-#### test_fetch_data_from_api.py
+# Tests Folder (Contains two files for testing)
 
-# 1. test_fetch_data_from_api_success()
+## test_fetch_data_from_api.py
+
+### 1. test_fetch_data_from_api_success()
     This test function make sure that the fetch_data_from_api() function works correctly when the API call is successful. It simulates a successful API response using mock data, which is given in an example JSON format with keys and values (only one Item), and then verifying that the function correctly handles and returns the data when the API returns a status code of 200(Success Code).
 
-# 2. test_fetch_data_from_api_failure()
+### 2. test_fetch_data_from_api_failure()
     This test function checks how the fetch_data_from_api() function behaves when the API call fails. It mocks an API error by setting the status code to 404 and simulates an HTTPError. The test ensures that the function raises the appropriate exception when the API response indicates an error.
 
-#### test_process_data.py
+## test_process_data.py
 
-# 1. test_process_data_empty()
+### 1. test_process_data_empty()
     This test function verifies that the process_data() function correctly processes and handles an empty data set. By providing an empty list of items, it confirms that the function returns an empty string as expected, reflecting the absence of data.
 
-# 2. test_process_data_non_empty()
+### 2. test_process_data_non_empty()
     This test function evaluates the process_data() function's ability to format and process a non-empty data set. It uses sample data with multiple items, including titles, subjects, and field offices, in an JSON format with key value pairs(Contains two records), to ensure that the function formats the data into a thorn-separated string, with each record correctly displayed on a new line.
 
 ## Bugs and Assumptions
