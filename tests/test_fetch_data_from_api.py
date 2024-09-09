@@ -6,7 +6,7 @@ import requests
 from unittest.mock import patch
 
 def test_fetch_data_from_api_success():
-    """Test fetching data from the API successfully."""
+    """Test for fetching data from the API successfully."""
     response = {
         "items": [
             {"title": "Sample Title", "subjects": ["Subject1", "Subject2"], "field_offices": ["Office1"]}
@@ -19,7 +19,7 @@ def test_fetch_data_from_api_success():
         assert result == response
 
 def test_fetch_data_from_api_failure():
-    """Test fetching data from the API with a failure response."""
+    """Test for fetching data from the API with a failure response."""
     with patch('main.requests.get') as get:
         get.return_value.status_code = 404
         get.side_effect = requests.exceptions.HTTPError

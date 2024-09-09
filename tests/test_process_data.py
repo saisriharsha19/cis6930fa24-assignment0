@@ -4,13 +4,13 @@ sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')
 import main
 
 def test_process_data_empty():
-    """Test processing data when no items are present."""
+    """Test processing for data when no items are present."""
     data = {"items": []}
     result = main.process_data(data)
     assert result == ""
 
 def test_process_data_non_empty():
-    """Test processing non-empty data."""
+    """Test processing for non-empty data."""
     data = {
         "items": [
             {"title": "Sample Title", "subjects": ["Subject1", "Subject2"], "field_offices": ["Office1", "Office2"]},
