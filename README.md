@@ -39,57 +39,57 @@ pipenv install -e .
 
 # d. Example Output(optional)
 
-
-NAJI SHARIFI ZINDASHTI † Counterintelligence, Iran † elpaso, minneapolis
-
+```python
+print("""NAJI SHARIFI ZINDASHTI † Counterintelligence, Iran † elpaso, minneapolis
+\n
 REZA HAMIDI RAVARI † Seeking Information - Terrorism, Iran † elpaso, minneapolis
-
+\n
 BORIS YAKOVLEVICH LIVSHITS † Counterintelligence † newyork
-
+\n
 JESUS DE LA CRUZ - LYNN, MASSACHUSETTS † ViCAP Missing Persons † N/A
-
+\n
 AARON PAUL VICTORY † Additional Violent Crimes † oklahomacity
-
+\n
 IDA DEAN (RICHARDSON) ANDERSON - ANN ARBOR, MICHIGAN † ViCAP Missing Persons † N/A
-
+\n
 HUYEN TRANG TEMPLE - ARSON † Seeking Information † houston
-
+\n
 BRYAN MATTHEW MCGEHRIN - TANEYTOWN, MARYLAND † ViCAP Missing Persons † N/A
-
+\n
 MITCHELL TODD HEIN - INDIO, CALIFORNIA † ViCAP Missing Persons † N/A
-
+\n
 ELSIE ELDORA LUSCIER † Kidnappings and Missing Persons, Indian Country † seattle
-
+\n
 JOHN DOE - WATERLOO TOWNSHIP, MICHIGAN † ViCAP Unidentified Persons † N/A
-
+\n
 ATRAYA BERARDI - ROCKLEDGE, FLORIDA †  † N/A
-
+\n
 KOA KAI BERNSTEIN † Kidnappings and Missing Persons † honolulu
-
+\n
 RODOLFO MANTILLA † Criminal Enterprise Investigations † miami
-
+\n
 RANDY STEWART DORAN - NEW ORLEANS, LOUISIANA † ViCAP Missing Persons † N/A
-
+\n
 DHULFIQAR KAREEM MSEER † Seeking Information † portland
-
+\n
 FREDERICK ARIAS † White-Collar Crime † phoenix
-
+\n
 DARASY S. CHHIM † Criminal Enterprise Investigations † boston
-
+\n
 JAMES S. RULAND - NORTH FOND du LAC, WISCONSIN † ViCAP Missing Persons † N/A
-
+\n
 MARY JOHNSON (DAVIS) † Kidnappings and Missing Persons, Indian Country † seattle
-
+\n
 KEVIN BRAME † Seeking Information † cincinnati
-
+\n
 BRANDON LEE WAGONER † Seeking Information † charlotte
-
+\n
 EDWIN ERNESTO CEDILLOS-RODRIGUEZ † Criminal Enterprise Investigations † N/A
-
+\n
 ISIAH TERRELL BILLY † Seeking Information, Indian Country, Navajo † albuquerque
-
-SALOME FLORES APODACA † Criminal Enterprise Investigations † washingtondc
-
+\n
+SALOME FLORES APODACA † Criminal Enterprise Investigations † washingtondc""")
+```
 
 # e. Functions
 
@@ -100,18 +100,18 @@ Essentially the main.py file contains three functions namely the main function, 
 fetch_data_from_api(page):
 
 ### The below function fetches data from the FBI API for the specified page number. This function makes an API call to FBI API using requests package in python and it receives a JSON output in return.
-    ```
+    ``` python
     def fetch_data_from_api(page):
         pass
     ```
 ### The below function processes and formats the data retrieved from the API or a JSON file. Before processing it checks the type of data it is receiving because for the page argument data, the data is in JSON format and for the file location argument data, the data is in list format since we already have a JSON file and we are passing it's contents in a list format. Then the output of this function is a thorn seperated fields for title, subjects and field_offices items and comma's(if there are more than one string for each filed) for each record. Each record's output is then seperated by a newline character and made into a list.
-    ```
+    ``` python
     def process_data(data):
         pass
     ```
 
 ### The Main function is to handle fetching and processing data based on provided parameters. If the parameter is a integer value with argument named page, then the flow goes to fetch the data from the API based on the page number and if the argument is a string value (File name) then the flow goes to fetch the {JSON} file and parses it to make into a list format. After all this, the data is then sent into the respective function (fetch_data_from_api/process_data) or both the functions based on the argument(page/file) and prints the three fileds such as title, subjects and field_offices to the standard output.
-    ```
+    ``` python
     def main(page=None, file=None):
         pass 
     ```
@@ -121,12 +121,12 @@ fetch_data_from_api(page):
 ## 1. test_fetch_data_from_api.py
 
 ### This below test function make sure that the fetch_data_from_api() function works correctly when the API call is successful. It simulates a successful API response using mock data, which is given in an example JSON format with keys and values (only one Item), and then verifying that the function correctly handles and returns the data when the API returns a status code of 200(Success Code).
-    ```
+    ``` python
     def test_fetch_data_from_api_success():
         pass
     ```
 ### This below test function checks how the fetch_data_from_api() function behaves when the API call fails. It mocks an API error by setting the status code to 404 and simulates an HTTPError. The test ensures that the function raises the appropriate exception when the API response indicates an error.
-    ```
+    ``` python
     def test_fetch_data_from_api_failure():
         pass
     ```
@@ -134,13 +134,13 @@ fetch_data_from_api(page):
 ## 2. test_process_data.py
 
 ### This below test function verifies that the process_data() function correctly processes and handles an empty data set. By providing an empty list of items, it confirms that the function returns an empty string as expected, reflecting the absence of data.
-    ```
+    ``` python
     def test_process_data_empty():
         pass
     ```
 
 ### This below test function evaluates the process_data() function's ability to format and process a non-empty data set. It uses sample data with multiple items, including titles, subjects, and field offices, in an JSON format with key value pairs(Contains two records), to ensure that the function formats the data into a thorn-separated string, with each record correctly displayed on a new line.
-    ```
+    ``` python
     def test_process_data_non_empty():
         pass
     ```
